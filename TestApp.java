@@ -59,7 +59,7 @@ public class TestApp {
 					}
 					break;
 				case 3:
-					System.out.println("*** Update Student Details ***");
+					System.out.println("\t\t    Update Student Details ");
 					System.out.print("Enter Student Id :: ");
 					sid = sc.nextInt();
 					resultSet = studentImpl.selectStudentsData(sid);
@@ -82,7 +82,7 @@ public class TestApp {
 					}
 					break;
 				case 4:
-					System.out.println("*** Delete Student Details ****");
+					System.out.println("\t\t  Delete Student Details ");
 					System.out.print("Enter Student Id :: ");
 					sid = sc.nextInt();
 					rowCount = studentImpl.deletStudentData(sid);
