@@ -20,7 +20,7 @@ public class TestApp {
 		int sage =0;
 		int rowCount = 0;
 		ResultSet resultSet = null;
-		System.out.println("****  Welcome to Harvard University *****");
+		System.out.println("\t\t\tWelcome to Harvard University");
 		StudentImpl studentImpl = new StudentImpl();
 		choice = Menu();
 		sc = new Scanner(System.in);
@@ -28,9 +28,9 @@ public class TestApp {
 			do {
 				switch (choice) {
 				case 1:
-					System.out.println("Hi!! Welcome to Student Admission Portal");
-					System.out.print("Enter Student Details ==> ");
-					System.out.print(" Student Name :: ");
+					System.out.println("\t\tWelcome to Student Admission Portal");
+					System.out.println("\t\t    Enter Student Details ");
+					System.out.print("Student Name :: ");
 					sname = sc.next();
 					System.out.print("Student Age :: ");
 					sage = sc.nextInt();
@@ -38,22 +38,22 @@ public class TestApp {
 					saddress = sc.next();
 					rowCount = studentImpl.insertStudentData(sname, sage, saddress);
 					if(rowCount == 1) {
-						System.out.println("Congratulations! Addmission Succesful");
+						System.out.println("Congratulations! Your Details are entered Succesfully");
 					}else {
 						System.out.println("Sorry ! Try again");
 					}
 					break;
 				case 2:
-					System.out.println("Hi!! Welcome to Student Details Portal");
+					System.out.println("\t\tWelcome to Student Details Portal");
 					System.out.print("Enter Students Id :: ");
 					sid = sc.nextInt();
 					resultSet = studentImpl.selectStudentsData(sid);
 					if (resultSet.next()) {
-						System.out.println("*** Student Details *** ");
-						System.out.println("Student Id :: "+resultSet.getInt(1));
-						System.out.println("Student Name :: "+resultSet.getString(2));
-						System.out.println("Student Age :: "+resultSet.getInt(3));
-						System.out.println("Student Address :: "+resultSet.getString(4));
+						System.out.println("\t\t    Student Details  ");
+						System.out.println("==================================================================");
+						System.out.println("Student Id       Student Name     Student Age     Student Address");
+						System.out.println("==================================================================");
+						System.out.println(resultSet.getInt(1)+"\t\t   "+resultSet.getString(2)+"\t\t"+resultSet.getInt(3)+"\t\t"+resultSet.getString(4));
 					} else {
 						System.out.println("Enter valid Student Id");
 					}
@@ -64,18 +64,16 @@ public class TestApp {
 					sid = sc.nextInt();
 					resultSet = studentImpl.selectStudentsData(sid);
 					if (resultSet.next()) {
-						System.out.println(" ** Students Details ** ");
-						System.out.println("Student Id :: "+resultSet.getInt(1));
 						System.out.println("Student Name :: "+resultSet.getString(2));
+						System.out.print("Enter New Name :: ");
+						sname = sc.next();
 						System.out.println("Student Age :: "+resultSet.getInt(3));
+						System.out.print("Enter New Age :: ");
+						sage = sc.nextInt();
 						System.out.println("Student Address :: "+resultSet.getString(4));
+						System.out.print("Enter New Address :: ");
+						saddress = sc.next();
 					}
-					System.out.print("Enter Student Name :: ");
-					sname = sc.next();
-					System.out.print("Enter Student Age :: ");
-					sage = sc.nextInt();
-					System.out.println("Enter Student Address :: ");
-					saddress = sc.next();
 					rowCount = studentImpl.updateStudentData(sid, sname, sage, saddress);
 					if (rowCount == 1) {
 						System.out.println("Student Details Updated Succesfully");
@@ -114,11 +112,12 @@ public class TestApp {
 	public static int Menu() {
 		int choice = 0;
 		sc = new Scanner(System.in);
-		System.out.println("Enter ==> 1. Student Admission \n"
-				+ "          2. Get Student Data \n"
-				+"          3. Update Student Details \n"
-				+"          4. Delete Student Details \n"
-				+"          5. Exit");
+		System.out.println("Please Select :: \n "
+				+ " 1. Student Admission \n"
+				+ "  2. Get Student Data \n"
+				+"  3. Update Student Details \n"
+				+"  4. Delete Student Details \n"
+				+"  5. Exit");
 		choice = sc.nextInt();
 		return choice;
 	}
