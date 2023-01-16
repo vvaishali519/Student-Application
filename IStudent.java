@@ -1,13 +1,12 @@
 package com.app.main;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.*;
+import java.sql.*;
 
 public interface IStudent {
-		public int insertStudentData(String sname,int sage,String saddress) throws IOException, SQLException;
-		public ResultSet selectStudentsData(int sid) throws IOException, SQLException ;
-		public int updateStudentData();
-		public int deletStudentData();
-		
+	
+	public int insertStudentData(String sname,int sage,String saddress) throws IOException, SQLException;
+	public ResultSet selectStudentsData(int sid) throws IOException, SQLException ;
+	public int updateStudentData(int sid,String sname,int sage,String saddress) throws IOException, SQLException;
+	public int deletStudentData(int sid) throws IOException, SQLException;
 }
